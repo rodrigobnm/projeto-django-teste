@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+    <title>Todo List</title>
 </head>
 <body>
+    <h1>
+        Adicionar: 
+    <form method="POST" action="{url 'processar-dados'}">
+        {% csrf_token %}
+        <label for="nome">Digite O Seu Nome: </label>
+        <input type="text" id="nome" name="nome">
+        <button type="submit">Enviar</button>
+    </form>
+    </h1>
+    {% load static %}
+    <img src="{% static 'app/img.jpg' %}" alt="My image">
     {% for x in posts %}
+        {% if x.usuario == "rodrigo" %}
+            <a href="./aba1">Ola rodrigo</a>
+        {% endif%}
         <h1>{{ x.usuario }}</h1>
         <p>{{ x.idade }} <br> {{ x.estagio }}</p>
     {% endfor %}

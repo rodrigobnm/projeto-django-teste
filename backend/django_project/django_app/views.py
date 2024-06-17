@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 dicionario_lista = [
     {
@@ -9,7 +10,7 @@ dicionario_lista = [
     {
         'usuario': 'joao',
         'idade': '19',
-        'estagio:': 'nao'
+        'estagio': 'nao'
     }
 ]
 
@@ -21,3 +22,6 @@ def home(request):
 
 def sobre(request):
     return render(request, 'app/sobre.html')
+
+def aba1(request):
+    return render(request, "app/aba1.html")
